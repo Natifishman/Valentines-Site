@@ -53,7 +53,11 @@
         function endGame() {
             clearInterval(gameInterval);
             alert("Game Over! Your score is: " + score);
-            document.getElementById('game_area').innerHTML = '';
+            if (score > 10) {
+                window.location.href = "protect-game.html";
+            } else {
+                document.getElementById('game_area').innerHTML = '';
+            }
         }
 
         function backToMain() {
