@@ -23,21 +23,11 @@ h1 {
 }
 
 .card {
+    position: relative;
     width: 80px;
     height: 120px;
-    background-color: #ccc;
     margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-}
-
-.card.flipped {
-    transform: rotateY(180deg);
+    perspective: 1000px;
 }
 
 .front, .back {
@@ -48,15 +38,19 @@ h1 {
 }
 
 .front {
-    background-color: #ccc;
+    background-color: #007bff;
+    color: #fff;
+    transform: rotateY(180deg);
     z-index: 2;
 }
 
 .back {
-    background-color: #007bff;
-    color: #fff;
-    transform: rotateY(180deg);
+    background-color: #ccc;
     z-index: 1;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
 }
 
 .overlay {
