@@ -7,13 +7,16 @@
   <link rel="stylesheet" href="Memory-game-styles.css">
 </head>
 <body>
-  <div class="container sad-theme">
+  <div class="container">
     <h1>Memory Game - SARA</h1>
     <div class="score-board">
       <span id="score">Score: 0</span>
       <button id="reset">Reset Game</button>
     </div>
-    <div class="game-board" id="game-board"></div>
+    <div class="game-board" id="game-board">
+        <!-- Add a card template with a card-back class -->
+        <div class="card card-back"></div>
+    </div>
   </div>
   <script src="Memory-game-script.js"></script>
 </body>
