@@ -30,7 +30,6 @@ body {
     align-items: center;
     gap: 1em;
     margin-top: 1em;
-    position: relative;
 }
 
 .btn {
@@ -47,17 +46,6 @@ body {
 .btn:hover {
     background-color: #f6d365;
     transform: scale(1.1);
-}
-
-#yesButton {
-    position: absolute;
-    margin-right: 150px;
-}
-
-#noButton {
-    position: absolute;
-    margin-left: 150px;
-    transition: 0.5s;
 }
 
 @keyframes fadeIn {
