@@ -1,12 +1,15 @@
 let score = 0;
 let gameInterval;
+let heartGenerationInterval = 1000;
 
 function startGame() {
     score = 0;
+    heartGenerationInterval = 1000;
     document.getElementById('score').textContent = "Score: " + score;
     document.getElementById('game_area').innerHTML = ''; // Clear any remaining hearts
-    gameInterval = setInterval(generateHeart, 1000);
-    setTimeout(endGame, 30000);
+    gameInterval = setInterval(generateHeart, heartGenerationInterval);
+    setTimeout(endGame, 60000); // Game lasts 60 seconds
+    increaseDifficulty();
 }
 
 function generateHeart() {
@@ -30,6 +33,18 @@ function generateHeart() {
             gameArea.removeChild(heart);
         }
     }, 2000);
+}
+
+function increaseDifficulty() {
+    const difficultyInterval = setInterval(() => {
+        if (heartGenerationInterval > 200) {
+            heartGenerationInterval -= 100;
+            clearInterval(gameInterval);
+            gameInterval = setInterval(generateHeart, heartGenerationInterval);
+        } else {
+            clearInterval(difficultyInterval);
+        }
+    }, 10000); // Increase difficulty every 10 seconds
 }
 
 function endGame() {
