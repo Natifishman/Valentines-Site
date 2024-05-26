@@ -1,104 +1,82 @@
-const letters = ['S', 'A', 'R', 'A', 'S', 'A', 'R', 'A'];
+const cardsArray = ['S', 'A', 'R', 'A']; // Adjust the array for your specific game
+
 let flippedCards = [];
-let matchedPairs = 0;
-let score = 0;
-
-document.addEventListener('DOMContentLoaded', () => {
-  const gameBoard = document.getElementById('game-board');
-  const scoreBoard = document.getElementById('score');
-  const resetButton = document.getElementById('reset');
-
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
+let matchedCards = [];
 
 function createCard(letter) {
-  const card = document.createElement('div');
-  card.classList.add('card');
-  card.dataset.letter = letter;
-  card.innerHTML = `
-    <div class="card-inner">
-      <div class="card-front"></div>
-      <div class="card-back">${letter}</div>
-    </div>
-  `;
-  card.addEventListener('click', handleCardClick);
-  return card;
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+        <div class="front">${letter}</div>
+        <div class="back"></div>
+    `;
+    card.addEventListener('click', () => flipCard(card));
+    return card;
 }
 
-  function shuffleAnimation() {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => card.classList.add('shuffling'));
-    setTimeout(() => cards.forEach(card => card.classList.remove('shuffling')), 500);
-  }
-
-  function initGame() {
-    shuffle(letters);
-    gameBoard.innerHTML = '';
-    letters.forEach(letter => {
-      const card = createCard(letter);
-      gameBoard.appendChild(card);
-    });
-    shuffleAnimation(); // Trigger the shuffle animation
-  }
-
-  function handleCardClick(e) {
-    const clickedCard = e.target.closest('.card');
-    if (clickedCard.classList.contains('flipped') || clickedCard.classList.contains('matched') || flippedCards.length === 2) {
-      return;
-    }
-
-    flipCard(clickedCard);
-
-    if (flippedCards.length < 2) {
-      flippedCards.push(clickedCard);
-    }
-
-    if (flippedCards.length === 2) {
-      checkMatch();
-    }
-  }
- 
 function flipCard(card) {
-  card.classList.add('flipped');
+    if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+        card.classList.add('flipped');
+        flippedCards.push(card);
+
+        if (flippedCards.length === 2) {
+            setTimeout(checkMatch, 500);
+        }
+    }
 }
 
-  function unflipCards() {
-    flippedCards.forEach(card => card.classList.remove('flipped'));
-    flippedCards = [];
-  }
-
-  function checkMatch() {
+function checkMatch() {
     const [card1, card2] = flippedCards;
-    if (card1.dataset.letter === card2.dataset.letter) {
-      card1.classList.add('matched');
-      card2.classList.add('matched');
-      flippedCards = [];
-      matchedPairs += 1;
-      score += 10;
-      updateScore();
-      if (matchedPairs === letters.length / 2) {
-        setTimeout(() => alert('Congratulations! You won!'), 300);
-      }
+
+    if (card1.querySelector('.front').innerHTML === card2.querySelector('.front').innerHTML) {
+        matchedCards.push(card1, card2);
+        flippedCards = [];
+
+        if (matchedCards.length === cardsArray.length * 2) {
+            showOverlay();
+        }
     } else {
-      setTimeout(unflipCards, 1000);
+        setTimeout(() => {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+            flippedCards = [];
+        }, 1000);
     }
-  }
+}
 
-  function updateScore() {
-    scoreBoard.textContent = `Score: ${score}`;
-  }
+function showOverlay() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+    overlay.innerHTML = `
+        <div class="message">
+            <h2>Congratulations!</h2>
+            <p>You won!</p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+    `;
+}
 
-  resetButton.addEventListener('click', () => {
+function restartGame() {
+    const gameBoard = document.getElementById('gameBoard');
+    gameBoard.innerHTML = '';
+    matchedCards = [];
     flippedCards = [];
-    matchedPairs = 0;
-    score = 0;
-    updateScore();
-    initGame();
-  });
 
-  initGame();
-});
+    shuffle(cardsArray);
+    cardsArray.forEach(letter => {
+        const card = createCard(letter);
+        gameBoard.appendChild(card);
+    });
+
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+}
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+document.addEventListener('DOMContentLoaded', restartGame);
