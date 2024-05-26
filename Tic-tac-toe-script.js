@@ -65,4 +65,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isDraw() {
-   
+    return board.every(cell => {
+      return cell !== '';
+    });
+  }
+
+  function endGame(draw) {
+    if (draw) {
+      statusDisplay.textContent = 'It\'s a Draw!';
+      statusDisplay.style.color = '#ff9800';
+    } else {
+      statusDisplay.textContent = `${currentPlayer} Wins!`;
+      statusDisplay.style.color = '#4CAF50';
+
+      if (currentPlayer === 'X') {
+        playerWins++;
+        playerWinCountDisplay.textContent = `Player Wins: ${playerWins}`;
+      } else {
+        computerWins++;
+        computerWinCountDisplay.textContent = `Computer Wins: ${computerWins}`;
+      }
+    }
+    gameActive = false;
+  }
+
+  function restartGame() {
+    currentPlayer = 'X';
+    gameActive = true;
+    board = ['', '', '', '', '', '', '', '', ''];
+    statusDisplay.textContent = '';
+    statusDisplay.style.color = '#333';
+    cells.forEach(cell => {
+      cell.textContent = '';
+      cell.classList.remove('played');
+      cell.style.animation = 'none';
+    });
+  }
+
+  function computerTurn() {
+    const emptyCells = board.reduce((acc, val, index) => {
+      if (val === '') acc.push(index);
+      return acc;
+    }, []);
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const cellIndex = emptyCells[randomIndex];
+    const cell = cells[cellIndex];
+    placeMark(cell, cellIndex);
+    if (checkWin()) {
+      endGame(false);
+    } else if (isDraw()) {
+      endGame(true);
+    } else {
+      swapTurn();
+    }
+  }
+
+  function backToMain() {
+    window.location.href = "index.html";
+  }
+});
