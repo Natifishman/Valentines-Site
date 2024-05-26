@@ -3,21 +3,40 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(189, 225, 122);
+    margin: 0;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    font-family: 'Nunito', sans-serif;
+}
+
+.container {
+    text-align: center;
 }
 
 .header_text {
-    font-family: 'Nunito';
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 2.5em;
     color: white;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0px;
+    margin: 0.2em 0;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .gif_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 1em 0;
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media only screen and (max-width: 768px) {
+    .header_text {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .header_text {
+        font-size: 1.5em;
+    }
 }
