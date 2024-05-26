@@ -20,30 +20,15 @@
                 <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
             </div>
         </div>
-        <div id="confetti-container"></div>
         <script>
             function nextPage() {
-                launchConfetti();
-                setTimeout(() => {
-                    window.location.href = "yes.html";
-                }, 2000);
+                window.location.href = "yes.html";
             }
 
             function moveButton() {
                 var x = Math.random() * (window.innerWidth - 200);
                 var y = Math.random() * (window.innerHeight - 100);
                 document.getElementById('noButton').style.transform = `translate(${x}px, ${y}px)`;
-            }
-
-            function launchConfetti() {
-                const confettiContainer = document.getElementById('confetti-container');
-                for (let i = 0; i < 100; i++) {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = `${Math.random() * 100}%`;
-                    confetti.style.animationDelay = `${Math.random() * 2}s`;
-                    confettiContainer.appendChild(confetti);
-                }
             }
         </script>
     </body> 
