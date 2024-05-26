@@ -23,7 +23,14 @@
     </div>
     <div class="status" id="status"></div>
     <button class="restart-btn" id="restartBtn">Restart</button>
+    <!-- New button for going back home -->
+    <button class="back-home-btn" onclick="goBack()">Back Home</button>
   </div>
   <script src="Tic-tac-toe-script.js"></script>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </body>
 </html>
