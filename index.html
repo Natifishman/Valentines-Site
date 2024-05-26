@@ -1,58 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-<body>
-<div class="container">
-    <div class="header">
-        <h1 id="headerText" class="header_text">Hey Sara,</h1>
-        <h1 class="header_text">Do you know that I will always love you?</h1>
-    </div>
-    <div class="gif_container" id="gifContainer">
-        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
-    </div>
-    <div class="buttons">
-        <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-        <button class="btn" id="noButton">No</button>
-    </div>
-</div>
-<script>
-    // Function to change the greeting message randomly
-    function changeGreeting() {
-        var greetings = ["Hey Sara,", "Hi there,", "Hello Sara,", "Greetings,"];
-        var randomIndex = Math.floor(Math.random() * greetings.length);
-        document.getElementById('headerText').textContent = greetings[randomIndex];
-    }
-
-    // Function to handle button click for 'Yes' button
-    function nextPage() {
-        window.location.href = "yes.html";
-    }
-
-    // Function to handle button click and hover effect for 'No' button
-    $(document).ready(function() {
-        $('#noButton').on('click', function() {
-            moveButton();
-        }).hover(function() {
-            $(this).toggleClass('hovered');
-        });
-    });
-
-    // Function to move the 'No' button randomly
-    function moveButton() {
-        var x = Math.random() * (window.innerWidth - $('#noButton').outerWidth());
-        var y = Math.random() * (window.innerHeight - $('#noButton').outerHeight());
-        $('#noButton').css({'left': x + 'px', 'top': y + 'px'});
-    }
-
-    // Dynamic background effect using jQuery
-    $(document).on('mousemove', function(e) {
-        $('#gifContainer img').css({
-            'transform': 'translate(-' + e.pageX / 50 + 'px, -' + e.pageY / 50 + 'px)'
-        });
-    });
-</script>
-</body>
+    <head>
+        <link rel="stylesheet" href="./styles.css">
+        
+    </head> 
+    <body>
+        <div class="container">
+            <div >
+                <h1 class = "header_text">Hey Sara,</h1>
+                <h1 class = "header_text">Do you know that I will always love you?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+            </div>
+            <div class = "buttons">
+                <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+                <script>
+                    function nextPage() {
+                        window.location.href = "yes.html";
+                    }
+                    
+                    function moveButton() {
+                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
+                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+                        document.getElementById('noButton').style.left = `${x}px`;
+                        document.getElementById('noButton').style.top = `${y}px`;
+                    }
+                </script> 
+            </div>
+        </div>
+       
+    </body> 
 </html>
