@@ -1,44 +1,59 @@
+body {
+  background-color: #f7f7f7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container {
   text-align: center;
-  padding-top: 50px;
 }
 
 .title {
   font-size: 3rem;
   color: #333;
   margin-bottom: 30px;
-  font-family: 'Arial', sans-serif;
+  font-weight: bold;
 }
 
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 120px);
+  grid-template-columns: repeat(3, 100px);
   grid-gap: 10px;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 340px;
 }
 
 .cell {
-  width: 120px;
-  height: 120px;
-  background-color: #ddd;
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  border: 2px solid #f7f7f7;
 }
 
 .cell:hover {
-  background-color: #aaa;
+  background-color: #f2f2f2;
+}
+
+.cell.played {
+  background-color: #e2e2e2;
+  cursor: not-allowed;
 }
 
 .status {
   margin-top: 20px;
   font-size: 1.5rem;
   color: #333;
-  font-family: 'Arial', sans-serif;
 }
 
 .restart-btn {
