@@ -19,7 +19,7 @@ const winningCombos = [
 
 const handleCellClick = (e) => {
   const cell = e.target;
-  const cellIndex = parseInt(cell.getAttribute('data-index'));
+  const cellIndex = Array.from(cells).indexOf(cell);
 
   if (board[cellIndex] !== '' || !gameActive) return;
 
@@ -30,9 +30,7 @@ const handleCellClick = (e) => {
     endGame(true);
   } else {
     swapTurn();
-    setTimeout(() => {
-      computerTurn();
-    }, 500);
+    setTimeout(computerTurn, 500);
   }
 };
 
@@ -86,9 +84,7 @@ cells.forEach(cell => {
   cell.addEventListener('click', handleCellClick);
 });
 
-// Function for computer's turn (you can implement your logic here)
 const computerTurn = () => {
-  // Example: Randomly select an empty cell
   const emptyCells = board.reduce((acc, val, index) => {
     if (val === '') acc.push(index);
     return acc;
