@@ -4,9 +4,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #DAF7A6 0%, #fda085 100%);
     font-family: 'Nunito', sans-serif;
-    animation: discoBackground 5s infinite alternate linear;
+    animation: discoBackground 5s infinite alternate; /* Adjust speed here */
 }
 
 .container {
@@ -31,8 +30,21 @@ body {
 }
 
 @keyframes discoBackground {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 0; }
+    0% {
+        background: linear-gradient(135deg, #DAF7A6, #fda085);
+    }
+    25% {
+        background: linear-gradient(135deg, #fda085, #FFD700);
+    }
+    50% {
+        background: linear-gradient(135deg, #FFD700, #40E0D0);
+    }
+    75% {
+        background: linear-gradient(135deg, #40E0D0, #DAF7A6);
+    }
+    100% {
+        background: linear-gradient(135deg, #DAF7A6, #fda085);
+    }
 }
 
 @media only screen and (max-width: 768px) {
