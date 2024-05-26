@@ -4,12 +4,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #213f5e; /* Background color */
   margin: 0;
 }
 
 .container {
   text-align: center;
+  color: white; /* Text color */
 }
 
 h1 {
@@ -25,6 +26,14 @@ h1 {
   margin-left: 20px;
   padding: 5px 10px;
   font-size: 1rem;
+  background-color: #28a745; /* Button color */
+  border: none;
+  color: white; /* Button text color */
+  cursor: pointer;
+}
+
+#reset:hover {
+  background-color: #218838; /* Button color on hover */
 }
 
 .game-board {
@@ -36,7 +45,7 @@ h1 {
 
 .card {
   width: 100px;
-  height: 100px;
+  height: 150px; /* Increased height for better aspect ratio */
   background-color: #007BFF;
   color: white;
   display: flex;
@@ -44,18 +53,26 @@ h1 {
   align-items: center;
   font-size: 2rem;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, background-color 0.3s; /* Added background-color transition */
+  background-image: url('card-texture.jpg'); /* Texture for the cards */
+  background-size: cover;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
-.card.flipped, .card.matched {
-  background-color: #28a745;
-  transform: rotateY(0deg);
+.card-back {
+  background-color: #28a745; /* Back of the card color */
 }
 
-.card-content {
-  display: none;
+/* Add animation for shuffling */
+@keyframes shuffle {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-20px) rotateY(20deg); }
+  50% { transform: translateY(0) rotateY(0deg); }
+  75% { transform: translateY(20px) rotateY(-20deg); }
+  100% { transform: translateY(0); }
 }
 
-.card.flipped .card-content, .card.matched .card-content {
-  display: block;
+.card.shuffling {
+  animation: shuffle 0.5s ease-in-out;
 }
