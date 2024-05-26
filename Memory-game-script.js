@@ -1,4 +1,4 @@
-const cardsArray = ['S', 'A', 'R', 'A']; // Adjust the array for your specific game
+const cardsArray = ['S', 'A', 'R', 'A', 'S', 'A', 'R', 'A']; // Adjust the array for your specific game
 
 let flippedCards = [];
 let matchedCards = [];
