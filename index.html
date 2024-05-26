@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <div>
-            <h1 class="header_text">Hey Sara,</h1>
+            <h1 class="header_text">Hey <span id="sara">Sara</span>,</h1>
             <h1 class="header_text">Do you know that I will always love you?</h1>
         </div>
         <div class="gif_container">
@@ -26,6 +26,14 @@
                     document.getElementById('noButton').style.left = `${x}px`;
                     document.getElementById('noButton').style.top = `${y}px`;
                 }
+
+                document.getElementById('sara').addEventListener('mouseover', function() {
+                    this.textContent = '🌵';
+                });
+
+                document.getElementById('sara').addEventListener('mouseout', function() {
+                    this.textContent = 'Sara';
+                });
             </script> 
         </div>
     </div>
