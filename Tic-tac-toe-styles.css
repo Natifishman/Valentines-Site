@@ -56,7 +56,7 @@ body {
   color: #333;
 }
 
-.button {
+.restart-btn {
   margin-top: 30px;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -68,6 +68,6 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
-.button:hover {
+.restart-btn:hover {
   background-color: #45a049;
 }
