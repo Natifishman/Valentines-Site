@@ -1,0 +1,72 @@
+/* General styles for all games */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #DAF7A6 0%, #fda085 100%);
+}
+
+.header_text {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.game_instructions {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 20px;
+}
+
+.princess_game_area {
+    position: relative;
+    width: 80%;
+    height: 60vh;
+    border: 2px solid #fff;
+    overflow: hidden;
+}
+
+.princess, .prince {
+    position: absolute;
+    bottom: 10px;
+    font-size: 36px;
+}
+
+.princess {
+    left: 0;
+}
+
+.prince {
+    right: 0;
+}
+
+.arrow {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Button styles */
+.btn {
+    background-color: #ffffff;
+    color: rgb(233, 48, 48);
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fda085;
+}
