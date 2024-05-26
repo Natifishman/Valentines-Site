@@ -26,22 +26,11 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   color: #4CAF50;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-weight: 900;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1;
-}
-
-.scoreboard {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.score {
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .board {
