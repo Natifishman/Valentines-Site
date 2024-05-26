@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return card;
   }
 
+  function shuffleAnimation() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.classList.add('shuffling'));
+    setTimeout(() => cards.forEach(card => card.classList.remove('shuffling')), 500);
+  }
+
   function initGame() {
     shuffle(letters);
     gameBoard.innerHTML = '';
@@ -31,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = createCard(letter);
       gameBoard.appendChild(card);
     });
+    shuffleAnimation(); // Trigger the shuffle animation
   }
 
   function handleCardClick(e) {
