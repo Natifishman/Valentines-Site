@@ -2,14 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const cells = document.querySelectorAll('[data-cell]');
   const statusDisplay = document.getElementById('status');
   const restartBtn = document.getElementById('restartBtn');
-  const playerWinCountDisplay = document.getElementById('playerWinCount');
-  const computerWinCountDisplay = document.getElementById('computerWinCount');
 
   let currentPlayer = 'X';
   let gameActive = true;
   let board = ['', '', '', '', '', '', '', '', ''];
-  let playerWins = 0;
-  let computerWins = 0;
 
   const winningCombos = [
     [0, 1, 2],
@@ -77,14 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       statusDisplay.textContent = `${currentPlayer} Wins!`;
       statusDisplay.style.color = '#4CAF50';
-
-      if (currentPlayer === 'X') {
-        playerWins++;
-        playerWinCountDisplay.textContent = `Player Wins: ${playerWins}`;
-      } else {
-        computerWins++;
-        computerWinCountDisplay.textContent = `Computer Wins: ${computerWins}`;
-      }
     }
     gameActive = false;
   }
@@ -120,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function backToMain() {
+  window.backToMain = function() {
     window.location.href = "index.html";
-  }
+  };
 });
