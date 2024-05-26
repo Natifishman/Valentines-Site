@@ -116,32 +116,3 @@ body {
     text-align: center;
     margin: 20px;
 }
-
-.protect_game_area {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    border: 2px solid #fff;
-    overflow: hidden;
-}
-
-.man {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 36px;
-}
-
-.shield {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 36px;
-    cursor: pointer;
-}
-
-.falling-object {
-    font-size: 24px;
-}
