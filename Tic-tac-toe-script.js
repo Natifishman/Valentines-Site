@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     board[index] = currentPlayer;
     cell.textContent = currentPlayer;
     cell.classList.add('played');
+    cell.style.animation = 'bounceIn 0.5s';
   }
 
   function swapTurn() {
@@ -68,8 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function endGame(draw) {
     if (draw) {
       statusDisplay.textContent = 'It\'s a Draw!';
+      statusDisplay.style.color = '#ff9800';
     } else {
       statusDisplay.textContent = `${currentPlayer} Wins!`;
+      statusDisplay.style.color = '#4CAF50';
     }
     gameActive = false;
   }
@@ -79,9 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
     gameActive = true;
     board = ['', '', '', '', '', '', '', '', ''];
     statusDisplay.textContent = '';
+    statusDisplay.style.color = '#333';
     cells.forEach(cell => {
       cell.textContent = '';
       cell.classList.remove('played');
+      cell.style.animation = 'none';
     });
   }
 
