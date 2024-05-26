@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Protect Game</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header_text">Protect the Man!</h1>
+        <p class="game_instructions">Use the shield to protect the man from falling objects. Move the shield with your mouse.</p>
+        <div id="game_area" class="protect_game_area">
+            <div id="man" class="man">👨</div>
+            <div id="shield" class="shield">🛡️</div>
+        </div>
+        <div>
+            <button class="btn" id="startButton" onclick="startProtectGame()">Start Game</button>
+            <button class="btn" id="backButton" onclick="backToMain()">Back to Main</button>
+        </div>
+    </div>
+
+    <script>
+        let protectGameInterval;
+        let shield, man;
+        let gameArea;
+
+        function startProtectGame() {
+            gameArea = document.getElementById('game_area');
+            shield = document.getElementById('shield');
+            man = document.getElementById('man');
+
+            gameArea.addEventListener('mousemove', moveShield);
+            protectGameInterval = setInterval(generateFallingObject, 1000);
+            setTimeout(endProtectGame, 30000);
+        }
+
+        function moveShield(event) {
+            const shieldWidth = shield.offsetWidth;
+            shield.style.left = `${event.clientX - shieldWidth / 2}px`;
+            shield.style.top = `${event.clientY - 50}px`;
+        }
+
+        function generateFallingObject() {
+            const fallingObject = document.createElement('div');
+            fallingObject.textContent = '🔻';
+            fallingObject.classList.add('falling-object');
+            fallingObject.style.position = 'absolute';
+            fallingObject.style.left = Math.random() * (window.innerWidth - 20) + 'px';
+            fallingObject.style.top = '0px';
+            gameArea.appendChild(fallingObject);
+
+            let fallInterval = setInterval(function() {
+                const objectTop = parseInt(window.getComputedStyle(fallingObject).top);
+                if (objectTop > window.innerHeight) {
+                    clearInterval(fallInterval);
+                    gameArea.removeChild(fallingObject);
+                } else {
+                    fallingObject.style.top = `${objectTop + 5}px`;
+
+                    const shieldBounds = shield.getBoundingClientRect();
+                    const objectBounds = fallingObject.getBoundingClientRect();
+
+                    if (
+                        objectBounds.left < shieldBounds.right &&
+                        objectBounds.right > shieldBounds.left &&
+                        objectBounds.bottom > shieldBounds.top &&
+                        objectBounds.top < shieldBounds.bottom
+                    ) {
+                        clearInterval(fallInterval);
+                        gameArea.removeChild(fallingObject);
+                    }
+
+                    const manBounds = man.getBoundingClientRect();
+                    if (
+                        objectBounds.left < manBounds.right &&
+                        objectBounds.right > manBounds.left &&
+                        objectBounds.bottom > manBounds.top &&
+                        objectBounds.top < manBounds.bottom
+                    ) {
+                        clearInterval(fallInterval);
+                        gameArea.removeChild(fallingObject);
+                        endProtectGame();
+                    }
+                }
+            }, 20);
+        }
+
+        function endProtectGame() {
+            clearInterval(protectGameInterval);
+            alert("Game Over! You protected the man.");
+            gameArea.innerHTML = '<div id="man" class="man">👨</div><div id="shield" class="shield">🛡️</div>';
+        }
+
+        function backToMain() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
