@@ -1,42 +1,52 @@
-/* General styles for all games */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background: linear-gradient(135deg, #DAF7A6 0%, #fda085 100%);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .header_text {
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 40px;
+    font-size: 32px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0;
+    color: #f15a29;
 }
 
 .game_instructions {
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin: 20px;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .princess_game_area {
     position: relative;
-    width: 80%;
+    width: 100%;
+    max-width: 600px;
     height: 60vh;
-    border: 2px solid #fff;
+    margin: 0 auto 20px;
+    border: 2px solid #f15a29;
+    border-radius: 10px;
+    background: #fff;
     overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .princess, .prince {
     position: absolute;
     bottom: 10px;
     font-size: 36px;
+    transition: left 0.1s linear;
 }
 
 .princess {
@@ -50,23 +60,29 @@ body {
 .arrow {
     font-size: 24px;
     cursor: pointer;
+    position: absolute;
+    top: 0;
+    transition: top 0.02s linear;
 }
 
-/* Button styles */
 .btn {
-    background-color: #ffffff;
-    color: rgb(233, 48, 48);
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
+    background-color: #f15a29;
+    color: #fff;
+    padding: 10px 20px;
     font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
     border: none;
-    border-radius: 12px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #fda085;
+    background-color: #d14920;
+}
+
+#message {
+    font-size: 20px;
+    color: #f15a29;
+    margin-top: 20px;
 }
