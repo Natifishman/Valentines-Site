@@ -1,3 +1,7 @@
+function backToMain() {
+    window.location.href = "index.html";
+}
+
 const cells = document.querySelectorAll('[data-cell]');
 const statusDisplay = document.getElementById('status');
 const restartBtn = document.getElementById('restartBtn');
