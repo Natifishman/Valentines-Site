@@ -39,6 +39,7 @@ const handleCellClick = (e) => {
 const placeMark = (cell, index) => {
   board[index] = currentPlayer;
   cell.textContent = currentPlayer;
+  cell.classList.add('played');
 };
 
 const swapTurn = () => {
@@ -61,7 +62,7 @@ const isDraw = () => {
 
 const endGame = (draw) => {
   if (draw) {
-    statusDisplay.textContent = 'Draw!';
+    statusDisplay.textContent = 'It\'s a Draw!';
   } else {
     statusDisplay.textContent = `${currentPlayer} Wins!`;
   }
@@ -75,6 +76,7 @@ const restartGame = () => {
   statusDisplay.textContent = '';
   cells.forEach(cell => {
     cell.textContent = '';
+    cell.classList.remove('played');
   });
 };
 
