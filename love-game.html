@@ -17,7 +17,7 @@
         <div>
             <button class="btn" id="startButton" onclick="startGame()">Start Game</button>
             <button class="btn" id="backButton" onclick="backToMain()">Back to Main</button>
-            <button class="btn" id="skipButton" onclick="skipToProtectGame()">Skip to Protect Game</button>
+            <button class="btn" id="skipButton" onclick="skipToPrincessGame()">Skip to princess Game</button>
         </div>
         <div>
             <p id="score">Score: 0</p>
@@ -55,14 +55,14 @@
             clearInterval(gameInterval);
             alert("Game Over! Your score is: " + score);
             if (score > 10) {
-                window.location.href = "protect-game.html";
+                window.location.href = "princess-game.html";
             } else {
                 document.getElementById('game_area').innerHTML = '';
             }
         }
 
-        function skipToProtectGame() {
-            window.location.href = "protect-game.html";
+        function skipToPrincessGame() {
+            window.location.href = "princess-game.html";
         }
 
         function backToMain() {
