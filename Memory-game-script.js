@@ -15,14 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function createCard(letter) {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.dataset.letter = letter;
-    card.innerHTML = `<div class="card-content">${letter}</div>`;
-    card.addEventListener('click', handleCardClick);
-    return card;
-  }
+function createCard(letter) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.dataset.letter = letter;
+  card.innerHTML = `
+    <div class="card-inner">
+      <div class="card-front"></div>
+      <div class="card-back">${letter}</div>
+    </div>
+  `;
+  card.addEventListener('click', handleCardClick);
+  return card;
+}
 
   function shuffleAnimation() {
     const cards = document.querySelectorAll('.card');
@@ -56,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
       checkMatch();
     }
   }
-
-  function flipCard(card) {
-    card.classList.add('flipped');
-  }
+ 
+function flipCard(card) {
+  card.classList.add('flipped');
+}
 
   function unflipCards() {
     flippedCards.forEach(card => card.classList.remove('flipped'));
