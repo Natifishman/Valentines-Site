@@ -2,10 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const cells = document.querySelectorAll('[data-cell]');
   const statusDisplay = document.getElementById('status');
   const restartBtn = document.getElementById('restartBtn');
+  const playerWinCountDisplay = document.getElementById('playerWinCount');
+  const computerWinCountDisplay = document.getElementById('computerWinCount');
 
   let currentPlayer = 'X';
   let gameActive = true;
   let board = ['', '', '', '', '', '', '', '', ''];
+  let playerWins = 0;
+  let computerWins = 0;
 
   const winningCombos = [
     [0, 1, 2],
@@ -61,54 +65,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isDraw() {
-    return board.every(cell => {
-      return cell !== '';
-    });
-  }
-
-  function endGame(draw) {
-    if (draw) {
-      statusDisplay.textContent = 'It\'s a Draw!';
-      statusDisplay.style.color = '#ff9800';
-    } else {
-      statusDisplay.textContent = `${currentPlayer} Wins!`;
-      statusDisplay.style.color = '#4CAF50';
-    }
-    gameActive = false;
-  }
-
-  function restartGame() {
-    currentPlayer = 'X';
-    gameActive = true;
-    board = ['', '', '', '', '', '', '', '', ''];
-    statusDisplay.textContent = '';
-    statusDisplay.style.color = '#333';
-    cells.forEach(cell => {
-      cell.textContent = '';
-      cell.classList.remove('played');
-      cell.style.animation = 'none';
-    });
-  }
-
-  function computerTurn() {
-    const emptyCells = board.reduce((acc, val, index) => {
-      if (val === '') acc.push(index);
-      return acc;
-    }, []);
-    const randomIndex = Math.floor(Math.random() * emptyCells.length);
-    const cellIndex = emptyCells[randomIndex];
-    const cell = cells[cellIndex];
-    placeMark(cell, cellIndex);
-    if (checkWin()) {
-      endGame(false);
-    } else if (isDraw()) {
-      endGame(true);
-    } else {
-      swapTurn();
-    }
-  }
-
-  window.backToMain = function() {
-    window.location.href = "index.html";
-  };
-});
+   
