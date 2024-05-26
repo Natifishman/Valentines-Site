@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     animation: discoBackground 5s infinite alternate; /* Adjust speed here */
 }
 
