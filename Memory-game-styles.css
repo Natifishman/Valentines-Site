@@ -1,8 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #213f5e; /* Background color */
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  color: white; /* Text color */
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.score-board {
+  margin-bottom: 20px;
+}
+
+#reset {
+  margin-left: 20px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: #28a745; /* Button color */
+  border: none;
+  color: white; /* Button text color */
+  cursor: pointer;
+}
+
+#reset:hover {
+  background-color: #218838; /* Button color on hover */
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
 .card {
-  /* Existing styles */
-  transform-style: preserve-3d; /* Added for 3D effect */
+  width: 100px;
+  height: 150px; /* Increased height for better aspect ratio */
+  position: relative;
   perspective: 1000px; /* Added for 3D effect */
-  position: relative; /* Added for 3D effect */
+  background-color: #007BFF;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
 .card-inner {
@@ -26,17 +77,10 @@
 }
 
 .card-front {
-  /* Styles for the front face of the card */
-  background-color: #007BFF;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+  background-color: #007BFF; /* Front face color */
 }
 
 .card-back {
-  /* Styles for the back face of the card */
   background-color: #28a745; /* Back of the card color */
   background-image: url('card-texture.jpg'); /* Texture for the cards */
   background-size: cover;
