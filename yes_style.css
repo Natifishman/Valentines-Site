@@ -4,8 +4,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #fda085 0%, #DAF7A6 100%);
+    background: linear-gradient(135deg, #DAF7A6 0%, #fda085 100%);
     font-family: 'Nunito', sans-serif;
+    animation: discoBackground 5s infinite alternate linear;
 }
 
 .container {
@@ -27,6 +28,11 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes discoBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
 }
 
 @media only screen and (max-width: 768px) {
