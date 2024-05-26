@@ -2,8 +2,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
-    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    height: 100vh;
+    background: linear-gradient(135deg, #93C572 0%, #DAF7A6 100%);
 }
 
 .header_text {
@@ -15,7 +15,7 @@ body {
     margin-top: 20px;
     margin-bottom: 0;
     opacity: 0;
-    animation: fadeIn 2s ease-in-out;
+    animation: fadeIn 2s ease-in forwards;
 }
 
 .gif_container {
