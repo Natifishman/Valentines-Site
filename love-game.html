@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Love Game</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header_text">Welcome to the Love Game!</h1>
+        <p class="game_instructions">Catch the hearts to show your love! Click on as many hearts as you can within 30 seconds.</p>
+        <div id="game_area">
+            <button class="heart" style="position: absolute; top: 50px; left: 100px;">❤️</button>
+            <!-- More hearts will be generated dynamically -->
+        </div>
+        <div>
+            <button class="btn" id="startButton" onclick="startGame()">Start Game</button>
+            <button class="btn" id="backButton" onclick="backToMain()">Back to Main</button>
+        </div>
+        <div>
+            <p id="score">Score: 0</p>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let gameInterval;
+
+        function startGame() {
+            score = 0;
+            document.getElementById('score').textContent = "Score: " + score;
+            gameInterval = setInterval(generateHeart, 1000);
+            setTimeout(endGame, 30000);
+        }
+
+        function generateHeart() {
+            const gameArea = document.getElementById('game_area');
+            const heart = document.createElement('button');
+            heart.textContent = '❤️';
+            heart.classList.add('heart');
+            heart.style.position = 'absolute';
+            heart.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            heart.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+            heart.onclick = function() {
+                score++;
+                document.getElementById('score').textContent = "Score: " + score;
+                gameArea.removeChild(heart);
+            };
+            gameArea.appendChild(heart);
+        }
+
+        function endGame() {
+            clearInterval(gameInterval);
+            alert("Game Over! Your score is: " + score);
+            document.getElementById('game_area').innerHTML = '';
+        }
+
+        function backToMain() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
