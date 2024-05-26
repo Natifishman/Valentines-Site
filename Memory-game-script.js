@@ -7,8 +7,8 @@ function createCard(letter) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
-        <div class="front">${letter}</div>
-        <div class="back"></div>
+        <div class="front"></div>
+        <div class="back">${letter}</div>
     `;
     card.addEventListener('click', () => flipCard(card));
     return card;
