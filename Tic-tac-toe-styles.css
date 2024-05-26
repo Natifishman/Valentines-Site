@@ -112,6 +112,16 @@ body {
   color: white;
 }
 
+@keyframes bounceIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .back-btn:hover {
   background-color: #d32f2f;
   transform: scale(1.05);
