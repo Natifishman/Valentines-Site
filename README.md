@@ -1,7 +1,6 @@
-💖 Welcome to Sara's Special Website 💖
-Hi there! 👋
-
-This adorable little corner of the internet is dedicated to the amazing Sarah. 🌸 It's a playful and loving way to remind her just how much she means to someone very special.
+💖 Welcome to our Special Website 💖
+This adorable little corner of the internet is dedicated to the amazing Sara. 
+🌸 It's a playful and loving way to remind her how much she means to someone very special.
 
 How It Works
 When you visit the website, you'll be greeted with a heartfelt question:
@@ -9,9 +8,7 @@ When you visit the website, you'll be greeted with a heartfelt question:
 "Sara, do you know I love you?"
 
 You have two options to respond:
-
 If you click "No":
-
 The button will playfully jump to a random place on the screen, making it impossible to click. 😜
 It's a fun little game to remind Sara that the love is undeniable and she can't escape it!
 If you click "Yes":
@@ -24,15 +21,11 @@ This site was created with lots of love and care to bring a smile to Sara's face
 
 Tech Specs
 Built With: Pure HTML, CSS, and a sprinkle of JavaScript magic ✨
-Design: Simple, clean, and super cute! 💕
+Design: Simple, clean.
 To Sara 💖
-This website is just a small token of affection, designed to make you laugh and feel cherished every time you visit. Remember, you are loved more than words can say!
 
-Enjoy the website, Sara! 😊
+Enjoy the website!
 
-With lots of love,
-Natanel 🌹
-
-Feel free to reach out if you have any questions or just want to share a smile.
+Feel free to reach out if you have any questions or want to share a smile.
 
 P.S. Have fun trying to catch that "No" button! 🎉
