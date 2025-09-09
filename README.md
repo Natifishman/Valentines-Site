@@ -1,3 +1,4 @@
+![App Showcase](Banner.png)
 💖 Welcome to our Special Website 💖
 This adorable little corner of the internet is dedicated to the amazing Sara. 
 🌸 It's a playful and loving way to remind her how much she means to someone very special.
